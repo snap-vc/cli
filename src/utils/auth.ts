@@ -9,7 +9,7 @@ import { t } from '../i18n';
 
 const execAsync = promisify(exec);
 const CONFIG_FILE = join(getConfigDir(), 'config.json');
-const AUTH_URL = 'http://localhost:3000/auth/cli';
+const AUTH_URL = 'https://snap.choco.rip/auth/cli';
 
 interface Config {
 	authToken?: string;
