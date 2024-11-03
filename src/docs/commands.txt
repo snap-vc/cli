@@ -1,0 +1,153 @@
+Commands
+========
+
+Basic Commands
+-------------
+
+sn init
+---------
+This command initializes a new repository.
+
+sn clone <url> [dir]
+----------------------
+Clones a remote repository.
+• url: URL of the remote repository
+• dir: Optional directory to clone into
+
+sn commit <message>
+--------------------
+Creates a new commit with the specified message.
+
+Options:
+• -s, --sign: Sign the commit
+• -a, --amend: Amend the previous commit
+• -e, --allow-empty: Allow empty commits
+• -n, --no-verify: Skip pre-commit hooks
+• --author <name>: Set specific author
+• --date <date>: Set specific date
+
+sn add [files...]
+------------------
+Stages files for commit.
+
+Options:
+• -p, --patch: Interactively stage changes
+
+sn branch
+----------
+Manages git branches.
+
+Options:
+• -l, --list: List all branches
+• -c, --create <name>: Create a new branch
+• -d, --delete <name>: Delete a branch
+• -r, --remote: Show remote branches
+
+sn checkout <branch-or-path>
+----------------------------
+Switches branches or restores files.
+
+Options:
+• -b, --new-branch: Create and switch to new branch
+• -f, --force: Force checkout
+
+sn status
+----------
+Shows working tree status.
+
+Options:
+• -s, --short: Give output in short format
+
+sn push [remote] [branch]
+--------------------------
+Pushes commits to remote repository.
+
+Options:
+• -f, --force: Force push
+• -u, --set-upstream: Set upstream branch
+
+sn reset [commit]
+----------------
+Resets current HEAD to specified state.
+
+Options:
+• --soft: Keep changes staged
+• --hard: Discard all changes
+• --mixed: Unstage changes (default)
+
+sn restore <paths...>
+--------------------
+Restores working tree files.
+
+Options:
+• --source <commit>: Restore from specific source
+• --staged: Restore staged changes
+• --worktree: Restore working tree files
+
+Configuration Commands
+--------------------
+
+sn config [args...]
+-------------------
+Opens or edits configuration file.
+
+sn plugins
+-----------
+Manages plugins.
+
+Options:
+• -l, --list: List installed plugins
+• -in, --install <repo>: Install a plugin
+• -rm, --remove <name>: Remove a plugin
+• -i, --init [template]: Initialize new plugin
+
+Remote Commands
+-------------
+
+sn remote [name] [url]
+----------------------
+Manages remote repositories.
+
+Options:
+• -l, --list: List all remotes
+• -d, --delete: Remove a remote
+
+Utility Commands
+--------------
+
+sn docs [command]
+-----------------
+Shows documentation for commands.
+
+sn web
+-------
+Starts the web interface.
+
+Options:
+• -p, --port: Port to run server on
+
+sn info
+--------
+Shows information about the repository.
+
+Aliases
+------
+• c: commit
+• cl: clone
+• d: docs
+• a: add
+• b: branch
+• co: checkout
+• s: status
+• p: push
+• cfg: config
+• w: web
+• i: info
+• rm: remote
+• rs: reset
+• rt: restore
+
+See Also
+--------
+• Run sn help <command> for detailed information about a specific command
+• Visit https://github.com/snap-vc/cli for more documentation

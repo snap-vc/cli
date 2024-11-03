@@ -1,0 +1,43 @@
+Configuration Guide
+==================
+
+This document describes the available configuration options for ${appName}.
+
+[i18n] Section
+-------------
+Controls internationalization settings for the application.
+
+locale
+    Controls the application's language setting
+    Type: string
+    Default: `en_US`
+    Available values: Can be found in `src/translations`
+    Examples:
+        @(foreach locales as locale)
+            locale = ${locale}
+        @(end)
+
+
+Configuration Tips
+----------------
+• Configuration is automatically loaded on startup
+• Changes take effect immediately after saving
+• Use `${appName} config` to view and edit the configuration file
+• Comments in config file start with ';'
+
+Example Configuration
+-------------------
+Here's a complete example configuration:
+
+    [i18n]
+    locale = en_US
+
+Troubleshooting
+--------------
+• If the config file is missing, a new one will be created
+• Invalid settings will fall back to defaults
+
+See Also
+--------
+• Run `${appName} help config` for command-line options
+• Visit https://github.com/snap-vc/cli for more examples

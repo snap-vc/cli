@@ -1,0 +1,118 @@
+Git Snap Hooks
+=============
+
+This document describes how to configure and use Git Snap hooks.
+
+Hook Configuration
+----------------
+Hooks are YAML-based configuration files that run custom commands at specific Git events.
+
+Basic Structure
+-------------
+Here's the basic structure of a hook configuration:
+
+    name: "Hook Name"                # Required: Name of the hook
+    description: "Description"        # Optional: Hook description
+    run:                             # Required: Commands to run
+      - "command 1"
+      - "command 2"
+    enabled: true                    # Optional: Enable/disable hook
+    failOnError: true               # Optional: Stop on failure
+    timeout: 30000                  # Optional: Timeout in ms
+    parallel: false                 # Optional: Parallel execution
+    workingDir: "./path"            # Optional: Working directory
+    env:                            # Optional: Environment vars
+      KEY: "value"
+
+Conditional Execution
+-------------------
+Hooks can be configured to run only under specific conditions:
+
+    onlyIf:
+      files:                        # File patterns
+        - "*.js"
+        - "src/**/*.ts"
+      env:                         # Required env vars
+        - "NODE_ENV"
+        - "CI"
+      commands:                    # Required commands
+        - "which docker"
+      branches:                    # Specific branches
+        - "main"
+        - "develop"
+
+Environment Variables
+------------------
+The following variables are available in hooks:
+
+• SNAP_HOOK_NAME - Current hook name
+• SNAP_HOOK_NODE_VERSION - Node.js version
+• All system environment variables
+
+Usage Examples
+------------
+Basic Lint Hook:
+
+    name: "Lint"
+    description: "Run ESLint on staged files"
+    run:
+      - "eslint ."
+
+Docker Build Hook:
+
+    name: "Docker Build"
+    description: "Build Docker image on main branch"
+    run:
+      - "docker build -t myapp ."
+    onlyIf:
+      branches:
+        - "main"
+      commands:
+        - "which docker"
+    failOnError: true
+    timeout: 300000
+
+Parallel Test Suite:
+
+    name: "Test Suite"
+    description: "Run different test suites in parallel"
+    parallel: true
+    run:
+      - "npm run test:unit"
+      - "npm run test:integration"
+      - "npm run test:e2e"
+
+Hook Location
+-----------
+• Place hooks in `.snap/hooks/` directory
+• Filename should match Git hook name (e.g., pre-commit)
+
+Common Git Hooks
+--------------
+• pre-commit - Runs before committing changes
+• prepare-commit-msg - Runs before commit message editor
+• commit-msg - Validates commit messages
+• post-commit - Runs after commit creation
+• pre-push - Runs before pushing changes
+• post-merge - Runs after merge completion
+• pre-rebase - Runs before rebasing
+
+Error Handling
+------------
+• failOnError: true - Stops on command failure
+• failOnError: false - Continues despite failures
+• Errors display in console with stack traces
+
+Best Practices
+------------
+• Keep hooks focused and simple
+• Use descriptive names and descriptions
+• Set appropriate timeouts
+• Use conditional execution
+• Consider parallel execution
+• Add proper error handling
+• Use environment variables for sensitive data
+
+See Also
+--------
+• Run `${appName} help hooks` for more information

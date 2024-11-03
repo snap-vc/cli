@@ -1,0 +1,13 @@
+node_modules
+dist
+*.md
+package-lock.json
+*.lock
+*.html
+*.css
+*.scss
+*.map
+*.yml
+*.yaml
+*.log
+dist

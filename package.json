@@ -1,0 +1,53 @@
+{
+	"name": "@chocodev/sn",
+	"version": "1.0.0",
+	"description": "This is a powerful Git workflow enhancement tool designed to streamline your version control experience with intuitive commands and additional features.",
+	"main": "./dist/app.js",
+	"scripts": {
+		"start": "node dist/app.js",
+		"link": "npm link",
+		"format": "prettier --cache --write . --ignore-path .prettierignore",
+		"lint": "tsc --noEmit",
+		"clean": "rm -rf dist",
+		"copy-files": "copyfiles -u 1 \"src/**/*.!(ts)\" dist/",
+		"postbuild": "chmod +x dist/app.js",
+		"build": "node scripts/build.js",
+		"tsc": "tsc"
+	},
+	"directories": {
+		"bin": "./dist"
+	},
+	"bin": {
+		"sn": "./dist/app.js"
+	},
+	"author": "chocoOnEstrogen <choco@choco.rip>",
+	"license": "GPL-3.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/snap-vc/cli.git"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"engines": {
+		"node": ">=14.0.0"
+	},
+	"dependencies": {
+		"@commitlint/lint": "^19.5.0",
+		"@commitlint/load": "^19.5.0",
+		"chalk": "^4.1.2",
+		"commander": "^12.1.0",
+		"glob": "^11.0.0",
+		"ini": "^5.0.0",
+		"ora": "^5.4.1",
+		"prettier": "3.2.5",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.6.3",
+		"yaml": "^2.6.0"
+	},
+	"devDependencies": {
+		"@types/ini": "^4.1.1",
+		"@types/yaml": "^1.9.6",
+		"copyfiles": "^2.4.1"
+	}
+}

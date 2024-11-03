@@ -1,0 +1,8 @@
+name: "Format and Type Check"
+description: "Run Prettier formatting and TypeScript type checking on staged files"
+run:
+  - "npm run format"
+  - "npm run lint"
+enabled: true
+failOnError: true
+parallel: false
