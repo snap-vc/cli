@@ -3,7 +3,7 @@ import { readdirSync, readFileSync, statSync, existsSync } from 'fs';
 import { getConfigDir } from '../os';
 import { t } from '../i18n';
 
-const API_URL = 'https://api.vtubers.tv/api';
+const API_URL = 'https://snap.choco.rip/api';
 
 interface PluginFile {
 	path: string;

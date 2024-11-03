@@ -1,6 +1,6 @@
 {
 	"name": "@chocodev/sn",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "This is a powerful Git workflow enhancement tool designed to streamline your version control experience with intuitive commands and additional features.",
 	"main": "./dist/app.js",
 	"scripts": {

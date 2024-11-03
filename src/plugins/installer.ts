@@ -18,7 +18,7 @@ const execAsync = promisify(exec);
 
 const PLUGINS_DIR = join(getConfigDir(), 'plugins');
 const TEMP_DIR = join(getConfigDir(), 'temp');
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'https://snap.choco.rip/api';
 
 /**
  * Ensures the plugins directory exists
