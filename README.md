@@ -1,5 +1,10 @@
 # Snap CLI
 
+> **⚠️ Warning**
+> 
+> This codebase is being rewritten in C#. The current implementation is in TypeScript, but the transition to C# aims to improve performance, enhance scalability, and expand functionality. In future updates, expect significant changes in the project structure, dependencies, and installation instructions. Stay tuned!
+
+
 This is a powerful Git workflow enhancement tool designed to streamline your version control experience with intuitive commands and additional features.
 
 ## Features
